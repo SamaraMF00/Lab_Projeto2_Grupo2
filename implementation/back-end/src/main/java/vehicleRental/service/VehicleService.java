@@ -19,10 +19,6 @@ public class VehicleService {
         return Vehicle;
     }
 
-    public void deleteById(Long id) {
-        this.vehicleRepository.deleteVehicleById(id);
-    }
-
     public Vehicle findById(Long id) {
         Optional<Vehicle> Vehicle = this.vehicleRepository.findById(id);
         return Vehicle.orElseThrow(() -> new ObjectNotFoundException("Vehicle not found in database"));
@@ -30,11 +26,6 @@ public class VehicleService {
 
     public List<Vehicle> findByAllVehicles() {
         return this.vehicleRepository.findByAllVehicles();
-    }
-
-    @org.springframework.transaction.annotation.Transactional
-    public void create(Vehicle vehicle) {
-        this.vehicleRepository.save(vehicle);
     }
 
 }
