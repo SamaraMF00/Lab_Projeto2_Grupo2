@@ -17,6 +17,4 @@ public class VehicleService {
     void createVehicle(Vehicle vehicle);
     void editVehicle(Vehicle vehicle);
     void deleteVehicle(String nome);
-    Double percentageAllowancesPerMonth(String inclusionDateInit, String inclusionDateEnd);
-
 }
