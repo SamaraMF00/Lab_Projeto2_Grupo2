@@ -1,20 +1,40 @@
 package vehicleRental.service;
 
-import java.util.List;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import vehicleRental.model.*;
+import vehicleRental.repository.VehicleRepository;
+import vehicleRental.service.exceptions.ObjectNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vehicleRental.model.Vehicle;
+import java.util.List;
+import java.util.Optional;
 
+@Service
 public class VehicleService {
 
-    Vehicle findByVehicleModel(String nome);
-    Vehicle findOneByModel(String nome);
-    Vehicle findById(Long id);
-    List<Vehicle> findByAllVehicles();
-    void deleteById(Long id);
+    @Autowired
+    private VehicleRepository vehicleRepository;
 
-    void createVehicle(Vehicle vehicle);
-    void editVehicle(Vehicle vehicle);
-    void deleteVehicle(String nome);
+    public Vehicle findByVehicleModel(String model) {
+        Vehicle Vehicle = this.vehicleRepository.findByVehicleModel(model).get();
+        return Vehicle;
+    }
+
+    public void deleteById(Long id) {
+        this.vehicleRepository.deleteVehicleById(id);
+    }
+
+    public Vehicle findById(Long id) {
+        Optional<Vehicle> Vehicle = this.vehicleRepository.findById(id);
+        return Vehicle.orElseThrow(() -> new ObjectNotFoundException("Vehicle not found in database"));
+    }
+
+    public List<Vehicle> findByAllVehicles() {
+        return this.vehicleRepository.findByAllVehicles();
+    }
+
+    @org.springframework.transaction.annotation.Transactional
+    public void create(Vehicle vehicle) {
+        this.vehicleRepository.save(vehicle);
+    }
+
 }
