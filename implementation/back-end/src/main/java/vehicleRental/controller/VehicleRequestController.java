@@ -45,9 +45,9 @@ public class VehicleRequestController {
         return ResponseEntity.ok().body(newVehicleRequest);
     }
 
-    @GetMapping("/loanId/{loan_id}")
-    public ResponseEntity<List<VehicleRequest>> findAllByLoan(@PathVariable Long loan_id) {
-        List<VehicleRequest> list = this.vehicleRequestService.findAllByLoan(loan_id);
+    @GetMapping("/requestId/{request_id}")
+    public ResponseEntity<List<VehicleRequest>> findAllByLoan(@PathVariable Long request_id) {
+        List<VehicleRequest> list = this.vehicleRequestService.findAllByRequest(request_id);
         return ResponseEntity.ok().body(list);
     }
 

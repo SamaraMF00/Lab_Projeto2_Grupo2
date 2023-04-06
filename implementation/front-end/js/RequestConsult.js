@@ -1,12 +1,11 @@
-var url = "http://localhost:7070";
-var tokenD = localStorage.getItem('token');
+var url = "http://localhost:8080";
 var idUserDevolution = 0;
 var objRequest = JSON.parse(localStorage.getItem('request'));
 var diffInDays;
 var multaPaga;
 
 function init() {
-    window.location.href = 'devolucao.html';
+    window.location.href = 'RequestConsult.html';
 }
 
 function addZeroes(num, len) {
@@ -21,19 +20,18 @@ function addZeroes(num, len) {
 }
 
 function onClickSearchRequest() {
-    readerId = document.querySelector("#formGroupExampleInput1");
-    searchRequest(readerId.value);
+    customer = document.querySelector("#formGroupExampleInput1");
+    searchRequest(customer.value);
 }
 
-async function searchRequest(readerId) {
-    urlRequest = url + "/request/user/" + readerId;
+async function searchRequest(customerId) {
+    urlRequest = url + "/request/customer/" + customerId;
 
     const response = await fetch(urlRequest, {
         method: "GET",
         headers: {
             'host': 'localhost:8080',
-            'Access-Control-Allow-Origin': '*',
-            'authorization': 'Bearer ' + tokenD
+            'Access-Control-Allow-Origin': '*'
         }
     });
 
@@ -41,32 +39,23 @@ async function searchRequest(readerId) {
 
     if (objRequest.id > 0) {
         localStorage.setItem('request', JSON.stringify(objRequest));
-        window.location.href = 'devolucaoVehicles.html';
+        window.location.href = 'VehicleRequest.html';
     }
     else {
-        alert("Não existe requisição para este leitor.");
+        alert("Não existe requisição para este cliente.");
         init();
     }
 }
 
 function showRequest() {
     let tab = document.getElementById("request").innerHTML;
-    date1 = new Date(objRequest.inclusionDate);
-    date2 = new Date(objRequest.dueDate);
-
-    const diffInMs = date1 - date2;
-    diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-
-    if (diffInDays < 0) diffInDays = 0;
 
     tab += `
         <tr>
         <td scope="row">${objRequest.id}</td>
-        <td>${objRequest.reader.name}</td>
-        <td>${objRequest.operator.name}</td>
-        <td>${returnStringDate(date1, true)}</td>
-        <td>${returnStringDate(date2, true)}</td>
-        <td>${diffInDays}</td>
+        <td>${objRequest.customer.name}</td>
+        <td>${objRequest.inclusionDate}</td>
+        <td>${objRequest.state}</td>
         </tr>
     `;
 
@@ -97,73 +86,25 @@ async function listVehicles(id) {
         method: "GET",
         headers: {
             'host': 'localhost:8080',
-            'Access-Control-Allow-Origin': '*',
-            'authorization': 'Bearer ' + tokenD
+            'Access-Control-Allow-Origin': '*'
         }
     });
 
-    Vehicles = await response.json();
+    vehicles = await response.json();
 
-    showVehiclesRequest(Vehicles);
+    showVehiclesRequest(vehicles);
 }
 
-function showVehiclesRequest(Vehicles) {
-    let list = `<h3>Vehicles a serem devolvidos</h3><br><ul class="list-group">`;
+function showVehiclesRequest(vehicles) {
+    let list = `<h3>Vehicles a serem devolvidos</h3><br><ul class="list">`;
 
-    for (i = 0; i < Vehicles.length; i++) {
-        list += `<li class="list-group-item">` + Vehicles[i].Vehicle.VehicleId + ` - ` + Vehicles[i].Vehicle.modelVehicle + `</li>`
+    for (i = 0; i < vehicles.length; i++) {
+        list += `<li class="list-item">` + vehicles[i].vehicle.id + ` - ` + vehicles[i].vehicle.model + `</li>`
     }
 
     list += `</ul>`;
 
     $("#table_pagination")[0].innerHTML = list;
-}
-
-function onClickSaveDevolution() {
-
-    if (diffInDays > 0 && localStorage.getItem('multaPaga') != "Sim") {
-        var msg = confirm("A devolução deste empréstimo está atrasada a " + diffInDays +
-            " dias. Uma multa de 2 reais ao dia foi aplicada. Deseja registrar o pagamento?")
-        if (msg == true) {
-            registerFine();
-        }
-        else
-            saveDevolution();
-    }
-    else
-        saveDevolution();
-}
-
-async function saveDevolution() {
-    const timeElapsed = Date.now();
-    const today = new Date(timeElapsed);
-
-    inclusionDate = today.toISOString().split('T')[0];
-
-    devolutionBody =
-    {
-        requestId: objRequest.id,
-        returnDate: inclusionDate
-    }
-
-    urlRequest = url + "/devolution";
-
-    const response = await fetch(urlRequest, {
-        method: "POST",
-        headers: {
-            'host': 'localhost:8080',
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/JSON',
-            'authorization': 'Bearer ' + tokenD
-        },
-        body: JSON.stringify(devolutionBody)
-    });
-
-    init();
-}
-
-function registerFine() {
-    window.location.href = 'multa.html';
 }
 
 showRequest();

@@ -39,7 +39,7 @@ public class RequestController {
         return ResponseEntity.ok().body(obj);
     }
 
-    @GetMapping("/user/{idUser}")
+    @GetMapping("/customer/{idUser}")
     public ResponseEntity<Request> findByIdUser(@PathVariable Long idUser) {
         Request obj = this.requestService.findByIdCustumer(idUser);
         return ResponseEntity.ok().body(obj);

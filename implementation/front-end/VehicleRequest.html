@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="pt-br">
+
 <head>
-    <title>Car List</title>
+    <title>Devolução de Livros</title>
     <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="icon" href="images/icon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+
     <style>
         .ie-panel {
             display: none;
@@ -81,50 +83,55 @@
         </div>
     </div>
     <div class="page">
-        <!-- Mailform-->
         <section class="section section-lg bg-gray-100">
             <div class="container">
                 <div class="row row-50 justify-content-xl-center flex-lg-row-reverse">
                     <div class="col-lg-8">
                         <h2>Consulta de Pedidos</h2>
                         <!-- RD Mailform-->
-                        <form class="rd-form rd-mailform" data-form-output="form-output-global"
-                            data-form-type="reservas" method="post">
-                            <div class="row row-30">
-                                <h3>Dados do Cliente</h3>
-                                <div class="col-md-3">
-                                    <div class="input-group mb-10">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">Código</label>
-                                        </div>
-                                        <input type="text" class="form-control col-md-2" id="formGroupExampleInput1"
-                                            placeholder="0000" disabled>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="input-group mb-8">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">Nome</label>
-                                        </div>
-                                        <select class="custom-select col-md-8" id="inputGroupSelect01"
-                                            onchange="onchangeUser()">
-                                            <optgroup id="opUser" label="Clientes cadastrados">
-                                                <option selected>Escolher...</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12" style="text-align: right;">
-                                    <button type="button" class="btn btn-warning" onclick="onClickSearchRequest()">
-                                        <img src="./images/lupa.png" /> Buscar</button>
-                                </div>
+                        <div class="row row-30">
+                            <div>
+                                <h3>Dados do Pedido</h3><br>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <th scope="col">Código</th>
+                                        <th scope="col">Cliente</th>
+                                        <th scope="col">Data de inclusão</th>
+                                        <th scope="col">Status</th>
+                                    </thead>
+                                    <tbody id="request"></tbody>
+                                </table>
                             </div>
-                        </form>
+                            <div id = "table_pagination">
+                                <h3>Veículos</h3><br>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                        First checkbox
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                        Second checkbox
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                        Third checkbox
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                        Fourth checkbox
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                        Fifth checkbox
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>                   
                     </div>
                 </div>
             </div>
         </section>
-    </div>
     <!-- Page Footer-->
     <footer class="section footer-classic bg-gray-950">
         <div class="footer-classic-main">
@@ -134,7 +141,7 @@
                         <div class="row row-50 row-xl-70">
                             <div class="col-12">
                                 <h3>Sobre nós</h3>
-                                <p style="text-align:justify">Projeto Odisseia criado apenas para fins educativos
+                                <p style="text-align:justify">Projeto criado apenas para fins educativos
                                     dentro da
                                     instituição Pontifícia Universidade Católica de Minas Gerais</p>
                             </div>
@@ -154,11 +161,11 @@
             </div>
         </div>
     </footer>
+</div>
     <div class="snackbars" id="form-output-global"></div>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/requestConsult.js"></script>
-    <script src="js/request.js"></script>
+    <script src="js/RequestConsult.js"></script>
 </body>
 
 </html>

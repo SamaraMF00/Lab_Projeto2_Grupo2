@@ -27,150 +27,188 @@
         }
     </style>
 </head>
-
-<body>
-    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
-                src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
-                alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
-    </div>
-    <div class="preloader">
-        <div class="preloader-logo"><a class="brand" href="index.html"><img class="brand-logo-dark"
-                    src="images/logo.png" alt="" width="245" height="50" /><img class="brand-logo-light"
-                    src="images/logo.png" alt="" width="245" height="50" /></a>
-        </div>
-        <div class="preloader-body">
-            <div class="cssload-container">
-                <div class="cssload-speeding-wheel"></div>
-            </div>
-        </div>
-    </div>
-    <div class="page">
-        <section class="section section-lg bg-gray-100">
-            <div class="container">
-                <div class="row row-50 justify-content-xl-center flex-lg-row-reverse">
-                    <div class="col-lg-8">
-                        <h2 id="txtLogin">Cadastro de Cliente</h2>
-                        <br>
-                        <br>
-                        <form>
-                            <div class="col-md-12 mb-4">
-                                <div class="form-outline">
-                                    <h3>Nome</h3>
-                                    <input type="text" minlength="3" required id="name"
-                                        class="form-control form-control-lg" />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-wrap">
-                                        <h3>RG</h3>
-                                        <input type="text" minlength="3" required id="rg"
-                                            class="form-control form-control-lg" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-outline">
-                                        <h3>CPF</h3>
-                                        <input type="email" required id="cpf" class="form-control form-control-lg" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 mb-12 pb-12">
-                                <div class="form-group">
-                                    <h3>Endereço</h3>
-                                    <input type="text" class="form-control" id="address">
-                                </div>
-                            </div>
-                            <div class="col-md-12 mb-12 pb-12">
-                                <div class="form-wrap">
-                                    <br>
-                                    <h3>Empresa(s)</h3>
-                                    <input type="text" class="form-control" id="employer01">
-                                    <br>
-                                    <input type="text" class="form-control" id="employer02">
-                                    <br>
-                                    <input type="text" class="form-control" id="employer03">
-                                </div>
-                            </div>
-                            <div class="mt-2 pt-2">
-                                <button class="btn btn-primary btn-primary" type="button" id="sendRegistrationForm"
-                                    onclick="onClickSave()">Gravar</button>
-                                <button class="btn btn-primary btn-primary" type="button" id="sendRegistrationForm"
-                                    onclick="onClickDelete()">Deletar</button>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" id="buttonConsult"
-                                    data-target="#inputCustomer">Consultar</button>
-
-                            </div>
-                            <br>
-                        </form>
+<header class="section page-header page-header-1">
+    <!-- RD Navbar-->
+    <div class="rd-navbar-wrap">
+        <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+            data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+            data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+            data-xl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px"
+            data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-main-outer">
+                <div class="rd-navbar-main">
+                    <!-- RD Navbar Panel-->
+                    <div class="rd-navbar-panel">
+                        <!-- RD Navbar Toggle-->
+                        <button class="rd-navbar-toggle"
+                            data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                        <!-- RD Navbar Brand-->
+                        <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark"
+                                    src="images/logo.png" alt="" width="245" height="50" /><img class="brand-logo-light"
+                                    src="images/logo.png" alt="" width="245" height="50" /></a>
+                        </div>
+                    </div>
+                    <div class="rd-navbar-nav-wrap">
+                        <!--RD Navbar Nav-->
+                        <ul class="rd-navbar-nav">
+                            <li class="rd-nav-item"><a class="rd-nav-link" href="Customer.html">Cliente</a>
+                            </li>
+                            <li class="rd-nav-item"><a class="rd-nav-link" href="Request.html">Pedido</a>
+                            </li>
+                            <li class="rd-nav-item"><a class="rd-nav-link" href="RequestConsult.html">Consulta</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Page Footer-->
-        <footer class="section footer-classic bg-gray-950">
-            <div class="footer-classic-main">
+        </nav>
+    </div>
+
+    <body>
+        <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
+                    src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
+                    alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+        </div>
+        <div class="preloader">
+            <div class="preloader-logo"><a class="brand" href="index.html"><img class="brand-logo-dark"
+                        src="images/logo.png" alt="" width="245" height="50" /><img class="brand-logo-light"
+                        src="images/logo.png" alt="" width="245" height="50" /></a>
+            </div>
+            <div class="preloader-body">
+                <div class="cssload-container">
+                    <div class="cssload-speeding-wheel"></div>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <section class="section section-lg bg-gray-100">
                 <div class="container">
-                    <div class="row row-30">
-                        <div class="col-sm-6 col-lg-5 col-xl-4">
-                            <div class="row row-50 row-xl-70">
-                                <div class="col-12">
-                                    <h3>Sobre nós</h3>
-                                    <p style="text-align:justify">Projeto para locação de veículos criado apenas para
-                                        fins educativos
-                                        dentro da instituição Pontifícia Universidade Católica de Minas Gerais</p>
+                    <div class="row row-50 justify-content-xl-center flex-lg-row-reverse">
+                        <div class="col-lg-8">
+                            <h2 id="txtLogin">Cadastro de Cliente</h2>
+                            <br>
+                            <br>
+                            <form>
+                                <div class="col-md-12 mb-4">
+                                    <div class="form-outline">
+                                        <h3>Nome</h3>
+                                        <input type="text" minlength="3" required id="name"
+                                            class="form-control form-control-lg" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-wrap">
+                                            <h3>RG</h3>
+                                            <input type="text" minlength="3" required id="rg"
+                                                class="form-control form-control-lg" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <h3>CPF</h3>
+                                            <input type="email" required id="cpf"
+                                                class="form-control form-control-lg" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-12 pb-12">
+                                    <div class="form-group">
+                                        <h3>Endereço</h3>
+                                        <input type="text" class="form-control" id="address">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-12 pb-12">
+                                    <div class="form-wrap">
+                                        <br>
+                                        <h3>Empresa(s)</h3>
+                                        <input type="text" class="form-control" id="employer01">
+                                        <br>
+                                        <input type="text" class="form-control" id="employer02">
+                                        <br>
+                                        <input type="text" class="form-control" id="employer03">
+                                    </div>
+                                </div>
+                                <div class="mt-2 pt-2">
+                                    <button class="btn btn-primary btn-primary" type="button" id="sendRegistrationForm"
+                                        onclick="onClickSave()">Gravar</button>
+                                    <button class="btn btn-primary btn-primary" type="button" id="sendRegistrationForm"
+                                        onclick="onClickDelete()">Deletar</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" id="buttonConsult"
+                                        data-target="#inputCustomer">Consultar</button>
+
+                                </div>
+                                <br>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Page Footer-->
+            <footer class="section footer-classic bg-gray-950">
+                <div class="footer-classic-main">
+                    <div class="container">
+                        <div class="row row-30">
+                            <div class="col-sm-6 col-lg-5 col-xl-4">
+                                <div class="row row-50 row-xl-70">
+                                    <div class="col-12">
+                                        <h3>Sobre nós</h3>
+                                        <p style="text-align:justify">Projeto para locação de veículos criado apenas
+                                            para
+                                            fins educativos
+                                            dentro da instituição Pontifícia Universidade Católica de Minas Gerais</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer-classic-aside">
-                <div class="container">
-                    <!-- Rights-->
-                    <p class="rights"><span>&copy;&nbsp;</span><span
-                            class="copyright-year"></span><span>&nbsp;</span><span>All
-                            Rights Reserved.</span><span>&nbsp;</span><br class="d-sm-none" /><a href="#">Terms of
-                            Use</a><span>
-                            and</span><span>&nbsp;</span><a href="#">Privacy Policy</a>.</p>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <div class="snackbars" id="form-output-global"></div>
-    <script src="js/customer.js" defer></script>
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
-
-
-</body>
-
-<div class="modal fade" id="inputCustomer" tabindex="-1" role="dialog" aria-labelledby="inputCustomerLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="inputCustomerLabel">Cliente</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="cpfConsult" class="col-form-label">CPF</label>
-                        <input type="text" class="form-control" id="cpfConsult">
+                <div class="footer-classic-aside">
+                    <div class="container">
+                        <!-- Rights-->
+                        <p class="rights"><span>&copy;&nbsp;</span><span
+                                class="copyright-year"></span><span>&nbsp;</span><span>All
+                                Rights Reserved.</span><span>&nbsp;</span><br class="d-sm-none" /><a href="#">Terms of
+                                Use</a><span>
+                                and</span><span>&nbsp;</span><a href="#">Privacy Policy</a>.</p>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="buttonClose">Close</button>
-                <button type="button" class="btn btn-primary" onclick="onClickConsult()">Ok</button>
+                </div>
+            </footer>
+        </div>
+
+        <div class="snackbars" id="form-output-global"></div>
+        <script src="js/customer.js" defer></script>
+        <script src="js/core.min.js"></script>
+        <script src="js/script.js"></script>
+
+
+    </body>
+
+    <div class="modal fade" id="inputCustomer" tabindex="-1" role="dialog" aria-labelledby="inputCustomerLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="inputCustomerLabel">Cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="cpfConsult" class="col-form-label">CPF</label>
+                            <input type="text" class="form-control" id="cpfConsult">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="buttonClose">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="onClickConsult()">Ok</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 </html>

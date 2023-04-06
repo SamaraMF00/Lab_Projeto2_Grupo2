@@ -40,8 +40,8 @@ public class VehicleRequestService {
         this.vehicleRequestRepository.deleteById(id);
     }
 
-    public List<VehicleRequest> findAllByLoan(Long loan_id) {
-        List<VehicleRequest> vehicleRequest = this.vehicleRequestRepository.findAllByIdRequest(loan_id);
+    public List<VehicleRequest> findAllByRequest(Long request_id) {
+        List<VehicleRequest> vehicleRequest = this.vehicleRequestRepository.findAllByIdRequest(request_id);
         return vehicleRequest;
     }
 }

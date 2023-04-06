@@ -13,7 +13,7 @@ import vehicleRental.model.VehicleRequest;
 @Repository
 public interface VehicleRequestRepository extends JpaRepository<VehicleRequest, Long> {
 
-    @Query(value = "select * from requestVehicle where request_id = :request_id", nativeQuery = true)
+    @Query(value = "select * from request_vehicle where request_id = :request_id", nativeQuery = true)
     List<VehicleRequest> findAllByIdRequest(@Param("request_id") Long Request_id);
 
 }

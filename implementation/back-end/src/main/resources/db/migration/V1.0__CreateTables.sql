@@ -26,7 +26,7 @@ CREATE TABLE request (
                       CONSTRAINT FK_for_request_customer_id FOREIGN KEY (customer_id) REFERENCES customer(id)
 );
 
-CREATE TABLE requestVehicle (
+CREATE TABLE request_vehicle (
                       id INT auto_increment PRIMARY KEY,
                       vehicle_id INT CHECK (vehicle_id > 0) NOT NULL,
                       request_id INT CHECK (request_id > 0) NOT NULL,
