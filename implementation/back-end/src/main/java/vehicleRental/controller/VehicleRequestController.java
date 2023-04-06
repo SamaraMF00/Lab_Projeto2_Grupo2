@@ -1,6 +1,5 @@
 package vehicleRental.controller;
 
-
 import java.net.URI;
 import java.util.List;
 
@@ -29,31 +28,31 @@ public class VehicleRequestController {
     @Autowired
     private VehicleRequestService vehicleRequestService;
 
-    private URI getPatchId(Long id){
+    private URI getPatchId(Long id) {
         return ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
     }
 
     @PostMapping
     @Validated
-    public ResponseEntity<Void> create(@Valid @RequestBody VehicleRequest obj){
+    public ResponseEntity<Void> create(@Valid @RequestBody VehicleRequest obj) {
         VehicleRequest newVehicleRequest = this.vehicleRequestService.create(obj);
         return ResponseEntity.created(getPatchId(newVehicleRequest.getId())).build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<VehicleRequest> findById(@PathVariable Long id){
+    public ResponseEntity<VehicleRequest> findById(@PathVariable Long id) {
         VehicleRequest newVehicleRequest = this.vehicleRequestService.findById(id);
         return ResponseEntity.ok().body(newVehicleRequest);
     }
 
     @GetMapping("/loanId/{loan_id}")
-    public ResponseEntity<List<VehicleRequest>> findAllByLoan(@PathVariable Long loan_id){
+    public ResponseEntity<List<VehicleRequest>> findAllByLoan(@PathVariable Long loan_id) {
         List<VehicleRequest> list = this.vehicleRequestService.findAllByLoan(loan_id);
         return ResponseEntity.ok().body(list);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         this.vehicleRequestService.delete(id);
         return ResponseEntity.noContent().build();
     }

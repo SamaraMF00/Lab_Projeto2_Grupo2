@@ -14,10 +14,10 @@ import vehicleRental.model.Vehicle;
 @Repository
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
-    Vehicle findOneByLivroId(Long livroId);
+    Vehicle findOneById(Long id);
 
-    Optional<Vehicle> findByVehicleModel(String nome);
+    Optional<Vehicle> findByModel(String nome);
 
-    @Query(value = "select * from livro where not exists (select * from requestVehicle where requestVehicle.vehicle_id = vehicle.id", nativeQuery = true)
+    @Query(value = "select * from vehicle", nativeQuery = true)
     List<Vehicle> findByAllVehicles();
 }

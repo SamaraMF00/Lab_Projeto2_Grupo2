@@ -2,10 +2,13 @@ package vehicleRental.model;
 
 import java.util.Date;
 import javax.persistence.*;
+
+import lombok.Data;
 import lombok.ToString;
 
 @Entity
 @ToString
+@Data
 @Table(name = "request")
 
 public class Request {
@@ -13,11 +16,11 @@ public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long requestId;
+    private Long id;
 
     @OneToOne
-    @JoinColumn(name = "custumer_id")
-    private Customer custumer;
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
     @Column(name = "inclusion_date")
     private Date inclusionDate;
@@ -27,8 +30,5 @@ public class Request {
 
     @Column(name = "state")
     private String state;
-
-    public Request() {
-    }
 
 }

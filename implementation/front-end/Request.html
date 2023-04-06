@@ -94,8 +94,8 @@
                     <div class="input-group-prepend">
                       <label class="input-group-text" for="inputGroupSelect01">Título</label>
                     </div>
-                    <select class="custom-select col-md-8" id="inputGroupSelect02" onchange="onchangeTitBook()">
-                      <optgroup id="opBook" label="Veículos disponíveis">
+                    <select class="custom-select col-md-8" id="inputGroupSelect02" onchange="onchangeTitVehicle()">
+                      <optgroup id="opvehicle" label="Veículos disponíveis">
                         <option selected>Escolher...</option>
                       </optgroup>
                     </select>
@@ -103,7 +103,7 @@
                 </div>
                 <div class="col-md-1" style="text-align: right;">
                   <div class="form-wrap">
-                    <button type="button" class="btn btn-outline-light" id="buttonAdd" onclick="onClickAddBook()"> <img
+                    <button type="button" class="btn btn-outline-light" id="buttonAdd" onclick="onClickAddVehicle()"> <img
                         src="./images/adicionar-lista.png" /></button>
                   </div>
                 </div>
@@ -115,12 +115,12 @@
                       <th scope="col">Modelo</th>
                       <th scope="col">Ano</th>
                     </thead>
-                    <tbody id="bookLoan"></tbody>
+                    <tbody id="vehicleRequest"></tbody>
                   </table>
                 </div>
               </div>
               <div class="col-12" style="text-align: right;">
-                <button type="button" class="btn btn-warning" onclick="onClickSaveLoan()"> <img
+                <button type="button" class="btn btn-warning" onclick="onClickSaveRequest()"> <img
                     src="./images/save.png" /> Salvar</button>
               </div>
           </div>
@@ -138,7 +138,7 @@
             <div class="row row-50 row-xl-70">
               <div class="col-12">
                 <h3>Sobre nós</h3>
-                <p style="text-align:justify">Projeto Odisseia criado apenas para fins educativos dentro da
+                <p style="text-align:justify">Projeto criado apenas para fins educativos dentro da
                   instituição Pontifícia Universidade Católica de Minas Gerais</p>
               </div>
             </div>

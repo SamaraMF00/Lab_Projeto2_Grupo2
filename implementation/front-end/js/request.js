@@ -1,4 +1,4 @@
-var url = "http://localhost:7070";
+var url = "http://localhost:8080";
 var tokenL = localStorage.getItem('token');
 var vehicles = [];
 var vehicleRequest = [];
@@ -168,13 +168,13 @@ function onchangeUser() {
 //#endregion
 
 //#region events vehicle
-function onchangeTitvehicle() {
+function onchangeTitVehicle() {
     showIdvehicle();
 }
 //#endregion
 
 //#region onClick
-async function onClickAddvehicle() {
+async function onClickAddVehicle() {
 
     let idvehicle = document.getElementById('formGroupExampleInput2');
     let urlvehicle = url + "/vehicle/id/" + idvehicle.value;
@@ -215,26 +215,8 @@ async function onClickSaveRequest() {
         dueDate: dueDate,
         state: 'Aguardando liberação'
     }
-
-    urlvehicle = url + "/request/customer/" + customerId.value;
-
-    const response = await fetch(urlvehicle, {
-        method: "GET",
-        headers: {
-            'host': 'localhost:8080',
-            'Access-Control-Allow-Origin': '*'
-        }
-    });
-
-    let request = await response.json();
-
-    if (request.id > 0) {
-        alert("Já existe um aluguel registrado para este cliente. Para continuar, realize a devolução.");
-        init();
-    }
-    else {
-        saveRequest(requestBody);
-    }
+    
+    saveRequest(requestBody);
 }
 
 function newVehicleRequest(request) {

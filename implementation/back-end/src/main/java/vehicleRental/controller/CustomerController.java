@@ -1,5 +1,7 @@
 package vehicleRental.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 import vehicleRental.service.CustomerService;
 
@@ -35,6 +37,12 @@ public class CustomerController {
     public ResponseEntity<Customer> findByCpf(@PathVariable String cpf) {
         Customer obj = this.CustomerService.findByCpf(cpf);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Customer>> findByAll() {
+        List<Customer> list = this.CustomerService.findByAll();
+        return ResponseEntity.ok().body(list);
     }
 
     @PutMapping

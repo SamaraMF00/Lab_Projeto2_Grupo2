@@ -1,9 +1,12 @@
 package vehicleRental.model;
 
 import javax.persistence.*;
+
+import lombok.Data;
 import lombok.ToString;
 
 @Entity
+@Data
 @ToString
 @Table(name = "vehicle")
 
@@ -12,7 +15,7 @@ public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long vehicleId;
+    private Long id;
 
     @Column(name = "licensePlate")
     private String licensePlate;
@@ -33,7 +36,7 @@ public class Vehicle {
     }
 
     public Vehicle(Long vehicleId, String licensePlate, String model, String brand, String year, String owner) {
-        this.vehicleId = vehicleId;
+        this.id = vehicleId;
         this.licensePlate = licensePlate;
         this.model = model;
         this.brand = brand;

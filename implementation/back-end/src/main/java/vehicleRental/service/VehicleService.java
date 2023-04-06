@@ -14,8 +14,8 @@ public class VehicleService {
     @Autowired
     private VehicleRepository vehicleRepository;
 
-    public Vehicle findByVehicleModel(String model) {
-        Vehicle Vehicle = this.vehicleRepository.findByVehicleModel(model).get();
+    public Vehicle findByModel(String model) {
+        Vehicle Vehicle = this.vehicleRepository.findByModel(model).get();
         return Vehicle;
     }
 

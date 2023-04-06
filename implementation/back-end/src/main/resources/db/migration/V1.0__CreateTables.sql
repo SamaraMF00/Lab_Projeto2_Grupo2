@@ -18,7 +18,7 @@ CREATE TABLE vehicle (
 
 CREATE TABLE request (
                       id INT auto_increment PRIMARY KEY,
-                      customer_id INT CHECK (customer_id > 0) NOT NULL,,
+                      customer_id INT CHECK (customer_id > 0) NOT NULL,
                       inclusion_date TIMESTAMP(0) NULL DEFAULT NULL,
                       due_date TIMESTAMP(0) NULL DEFAULT NULL,
                       state VARCHAR(100) NOT NULL,

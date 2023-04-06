@@ -3,10 +3,14 @@ package vehicleRental.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import vehicleRental.model.Vehicle;
 import vehicleRental.service.VehicleService;
 
+@RestController
+@RequestMapping("/vehicle")
+@Validated
 public class VehicleController {
 
     @Autowired
@@ -14,7 +18,7 @@ public class VehicleController {
 
     @GetMapping("/model/{model}")
     public ResponseEntity<Vehicle> findByModel(@PathVariable String model) {
-        Vehicle newVehicle = this.vehicleService.findByVehicleModel(model);
+        Vehicle newVehicle = this.vehicleService.findByModel(model);
         return ResponseEntity.ok().body(newVehicle);
     }
 

@@ -36,12 +36,12 @@ public class VehicleRequestService {
         }
     }
 
-    public void deleteAllByLoan(Long id){
-      this.vehicleRequestRepository.deleteById(id);       
+    public void deleteAllByLoan(Long id) {
+        this.vehicleRequestRepository.deleteById(id);
     }
 
     public List<VehicleRequest> findAllByLoan(Long loan_id) {
-        List<VehicleRequest> vehicleRequest = this.vehicleRequestRepository.findAllByIdLoan(loan_id);
+        List<VehicleRequest> vehicleRequest = this.vehicleRequestRepository.findAllByIdRequest(loan_id);
         return vehicleRequest;
     }
 }

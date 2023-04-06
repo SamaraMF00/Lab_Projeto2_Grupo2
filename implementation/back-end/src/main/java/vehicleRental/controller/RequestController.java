@@ -2,7 +2,7 @@ package vehicleRental.controller;
 
 import java.text.ParseException;
 import java.util.List;
-import javax.validation.Valid; 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import vehicleRental.service.RequestService;
 import vehicleRental.model.Request;
 
@@ -23,7 +22,7 @@ import vehicleRental.model.Request;
 @RequestMapping("/request")
 @Validated
 public class RequestController {
-        
+
     @Autowired
     private RequestService requestService;
 
@@ -39,30 +38,11 @@ public class RequestController {
         Request obj = this.requestService.findById(id);
         return ResponseEntity.ok().body(obj);
     }
-  
+
     @GetMapping("/user/{idUser}")
     public ResponseEntity<Request> findByIdUser(@PathVariable Long idUser) {
         Request obj = this.requestService.findByIdCustumer(idUser);
         return ResponseEntity.ok().body(obj);
-    }
-
-    @GetMapping("/date/{dueDate}")
-    public ResponseEntity<List<Request>> findAllByDueDate(@PathVariable String dueDate) throws ParseException {
-        List<Request> obj = this.requestService.findAllByDueDate(dueDate);
-        return ResponseEntity.ok().body(obj);
-    }
-
-    @PutMapping
-    @Valid
-    public ResponseEntity<Void> update(@Valid @RequestBody Request obj){
-        this.requestService.update(obj);
-        return ResponseEntity.noContent().build();
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
-        this.requestService.delete(id);
-        return ResponseEntity.noContent().build();
     }
 
 }

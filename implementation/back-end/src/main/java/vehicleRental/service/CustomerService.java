@@ -1,5 +1,6 @@
 package vehicleRental.service;
 
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,10 @@ public class CustomerService {
     @Transactional
     public Customer update(Customer obj) {
         return this.customerRepository.save(obj);
+    }
+
+    public List<Customer> findByAll() {
+        return this.customerRepository.findByAll();
     }
 
     public void delete(Long id) {
