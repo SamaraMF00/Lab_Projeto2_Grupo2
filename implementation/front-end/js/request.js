@@ -123,8 +123,8 @@ function showvehicleRequest(vehicle) {
     tab += `
         <tr>
         <td scope="row">${vehicle.id}</td>
+        <td>${vehicle.brand}</td>
         <td>${vehicle.model}</td>
-        <td>${vehicle.licensePlate}</td>
         <td>${vehicle.year}</td>
         </tr>
     `;

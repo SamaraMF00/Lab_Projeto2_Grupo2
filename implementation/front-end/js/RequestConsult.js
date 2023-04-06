@@ -48,13 +48,14 @@ async function searchRequest(customerId) {
 }
 
 function showRequest() {
+    date = new Date(objRequest.inclusionDate);
     let tab = document.getElementById("request").innerHTML;
 
     tab += `
         <tr>
         <td scope="row">${objRequest.id}</td>
         <td>${objRequest.customer.name}</td>
-        <td>${objRequest.inclusionDate}</td>
+        <td>${returnStringDate(date, true)}</td>
         <td>${objRequest.state}</td>
         </tr>
     `;
@@ -96,7 +97,7 @@ async function listVehicles(id) {
 }
 
 function showVehiclesRequest(vehicles) {
-    let list = `<h3>Vehicles a serem devolvidos</h3><br><ul class="list">`;
+    let list = `<h3>Veículos do pedido</h3><br><ul class="list">`;
 
     for (i = 0; i < vehicles.length; i++) {
         list += `<li class="list-item">` + vehicles[i].vehicle.id + ` - ` + vehicles[i].vehicle.model + `</li>`
